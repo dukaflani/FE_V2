@@ -19,6 +19,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "utils/context.js", "pages/_viewport/desktop/index.jsx", "layout/desktop/NavigationLayout.jsx", "components/reusableComponents/HeaderDesktop.jsx", "styles/theme.ts", "components/reusableComponents/BottomNavDesktop.jsx", "context/NavigationContext.js"],
   "exclude": ["node_modules"]
 }
