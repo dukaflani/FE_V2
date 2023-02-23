@@ -74,6 +74,22 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 const HeaderDesktop = ({ setIsDarkMode, isDarkMode, value, setValue }) => {
   const router = useRouter()
+  const pathName = router.pathname
+  const pathnameLength = pathName.split("/")
+  const [showTabs, setShowTabs] = useState(true)
+  console.log("pathname value:", pathName);
+  console.log("split pathname:", pathnameLength.length)
+
+  useEffect(() => {
+    if (pathnameLength.length > 3) {
+      setShowTabs(false)
+    }  
+  }, [pathName])
+  
+
+
+  // home -> /_viewport/desktop
+  // other pages -> /_viewport/desktop/watch
   const theme = useTheme()
   const [drawerOpen, setDrawerOpen] = useState(false)
   
@@ -130,23 +146,25 @@ const HeaderDesktop = ({ setIsDarkMode, isDarkMode, value, setValue }) => {
               </Box>
             </Link>
             <Box sx={{flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              <Box sx={{display: { xs: 'none', md: 'block' }}}>
-                <Tabs 
-                    value={value} 
-                    onChange={handleChange}
-                    textColor="secondary"
-                    indicatorColor="secondary" 
-                    aria-label="icon label tabs example">
-                      <Tooltip title="Videos">
-                          <Tab icon={<HomeFilled style={{fontSize: 20}} />} />
-                      </Tooltip>
-                      <Tooltip title="Products">
-                          <Tab icon={<ShopFilled style={{fontSize: 20}} />} />
-                      </Tooltip>
-                      <Tooltip title="Events">
-                          <Tab icon={<BarcodeOutlined style={{fontSize: 20}} />} />
-                      </Tooltip>
-                </Tabs>
+              <Box sx={showTabs ? {display: 'block'} : {display: 'none'}}>
+                <Box sx={{display: { xs: 'none', md: 'block' }}}>
+                  <Tabs 
+                      value={value} 
+                      onChange={handleChange}
+                      textColor="secondary"
+                      indicatorColor="secondary" 
+                      aria-label="icon label tabs example">
+                        <Tooltip title="Videos">
+                            <Tab icon={<HomeFilled style={{fontSize: 20}} />} />
+                        </Tooltip>
+                        <Tooltip title="Products">
+                            <Tab icon={<ShopFilled style={{fontSize: 20}} />} />
+                        </Tooltip>
+                        <Tooltip title="Events">
+                            <Tab icon={<BarcodeOutlined style={{fontSize: 20}} />} />
+                        </Tooltip>
+                  </Tabs>
+                </Box>
               </Box>
             </Box>
             <Box sx={{display: 'flex', alignItems: 'center', justifyContent: 'end', cursor: 'pointer',  paddingRight: 1}}>

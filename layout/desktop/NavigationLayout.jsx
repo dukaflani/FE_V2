@@ -16,9 +16,6 @@ const NavigationLayout = ({ children, setIsDarkMode, isDarkMode, value, setValue
     <>
       <HeaderDesktop setIsDarkMode={setIsDarkMode} isDarkMode={isDarkMode} value={value} setValue={setValue} />
         <>{children}</>
-      <Box sx={{display: { xs: 'block', md: 'none' }}}>
-        <BottomNavDesktop value={value} setValue={setValue}/>
-      </Box>
     </>
   )
 }

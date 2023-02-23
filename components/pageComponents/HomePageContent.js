@@ -1,5 +1,5 @@
-// React Imports
-import { useState } from 'react'
+// Next Imports
+import { useRouter } from 'next/router';
 
 // MUI Imports
 import { Box, Grid, Stack, Typography, Container, IconButton, Tooltip } from "@mui/material"
@@ -16,7 +16,7 @@ import { UserOutlined, CloudUploadOutlined, LayoutOutlined, SettingOutlined } fr
 
 
 const HomePageContent = ({ value }) => {
-  
+  const router = useRouter()
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -50,15 +50,17 @@ const HomePageContent = ({ value }) => {
         </Box>
       </Grid>
       <Grid item xs={12} md={11}>
-        <Box sx={{ paddingTop: { xs: 0, md: 2 }, minHeight: '100vh', paddingX: { xs: 0, sm: 2 }}}>
-          {
+        <Container maxWidth='xl'>
+          <Box sx={{ paddingTop: { xs: 0, md: 2 }, minHeight: '100vh', paddingX: { xs: 0, sm: 2 }}}>
             {
-                0 : <VideosComponent/>,
-                1 : <ProductsComponent/>,
-                2 : <EventsComponent/>,
-            }[value]
-        }
-        </Box>
+              {
+                  0 : <VideosComponent/>,
+                  1 : <ProductsComponent/>,
+                  2 : <EventsComponent/>,
+              }[value]
+            }
+          </Box>
+        </Container>
       </Grid>
     </Grid>
   </Box>

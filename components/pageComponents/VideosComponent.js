@@ -1,13 +1,12 @@
 // Next Imports
 import { useRouter } from 'next/router';
-
-// Next Image
 import Image from "next/legacy/image";
 
 
 // MUI Imports
 import { Box, Grid, Typography, Avatar, IconButton, Stack, Tooltip, Link, Skeleton } from "@mui/material"
 import { useTheme } from '@mui/material/styles';
+
 
 // Icons
 import { CheckCircleFilled, MoreOutlined } from "@ant-design/icons";
@@ -26,7 +25,7 @@ const VideoCard = () => {
 
 
   return (
-    <Box sx={{ minHeight: 260}}>
+    <Box sx={{ minHeight: 260}} onClick={() => router.push({pathname: '/watch', query: {v: 'video_id'}})}>
       <Box sx={{ width: '100%', height: '100%', maxWidth: 350, margin: 'auto'}}>
         {true ? (
           <Box sx={{ width: '100%', height: '56.25%', borderRadius: 2, position: "relative", cursor:'pointer'}}>
@@ -50,7 +49,7 @@ const VideoCard = () => {
               <Link 
                 onClick={(e) => {
                   e.preventDefault()
-                  router.push({ pathname: '/' })
+                  router.push({pathname: '/watch', query: {v: 'video_id'}})
                 }}
                 title={videoTitle}
                 className="line-clamp-2 line-clamp"
@@ -99,15 +98,15 @@ const VideoCard = () => {
 
 const VideosComponent = () => {
   return (
-    <Box>
-      <Grid container rowSpacing={1} columnSpacing={2}>
-        {[...Array(12).keys()].map((item, i) => (
-           <Grid item xs={12} sm={6} md={4} lg={3} key={i}>
-              <VideoCard />
-          </Grid>
-        ))}
-      </Grid>
-    </Box>
+      <Box>
+        <Grid container rowSpacing={1} columnSpacing={2}>
+          {[...Array(12).keys()].map((item, i) => (
+            <Grid item xs={12} sm={6} md={4} lg={3} key={i}>
+                <VideoCard />
+            </Grid>
+          ))}
+        </Grid>
+      </Box>
   )
 }
 

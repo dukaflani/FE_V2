@@ -8,14 +8,29 @@ import Image from "next/legacy/image";
 import { Box, Divider, Grid, Paper, Stack, Typography } from "@mui/material"
 import { useTheme } from '@mui/material/styles';
 
+// React Slick Carousel
+import Slider from "react-slick";
+
 // Project Imports
-import thumbnail from '@/public/assets/pictures/thumbnail.jpg'
+import Leaderboard3Ads from '@/components/reusableComponents/Leaderboard3Ads'
+import ProductsCarouselDukaflani from '@/components/reusableComponents/ProductsCarouselDukaflani'
+import Copyright from '@/components/reusableComponents/Copyright'
+import ProductsCarousel from '@/components/reusableComponents/ProductsCarousel'
+import adposter1 from '@/public/assets/pictures/dukaflani-ad-poster1.png'
+import adposter2 from '@/public/assets/pictures/dukaflani-ad-poster2.png'
+import adposter3 from '@/public/assets/pictures/dukaflani-ad-poster3.png'
+import adposter4 from '@/public/assets/pictures/dukaflani-ad-poster4.png'
+
 
 // Icons
-import { ApiTwoTone, BoxPlotTwoTone, CheckCircleOutlined, DollarCircleTwoTone, HeartOutlined, QuestionCircleTwoTone, SkinOutlined, TabletOutlined } from "@ant-design/icons";
+import { ApiTwoTone,  CheckCircleOutlined, DollarCircleTwoTone, HeartOutlined,  
+  QuestionCircleTwoTone, SkinOutlined, TabletOutlined } from "@ant-design/icons";
+
+
 
 
 const ProductsComponent = () => {
+  const adPostersArray = [adposter1, adposter2, adposter3, adposter4]
   const [categoryHovered, setCategoryHovered] = useState('')
   const [vendorHovered, setVendorHovered] = useState('')
   const theme = useTheme()
@@ -82,10 +97,11 @@ const ProductsComponent = () => {
 
   return (
     <Box>
+      {/* Hero Section */}
       <Box>
         <Grid container spacing={2}>
           <Grid md={2} sx={{ display: {xs:'none', md:'block'}}} item>
-            <Paper sx={{padding: 1, height: '100%'}}>
+            <Paper square sx={{padding: 1, height: '100%'}}>
                 {storeCategories.map((category, i) => (
                   <Stack 
                       key={i}
@@ -111,7 +127,7 @@ const ProductsComponent = () => {
                     <Box 
                         key={i}
                         onMouseEnter={() => handleMouseInVendor(i)}
-                        onMouseLeave={handleMouseInVendor}
+                        onMouseLeave={handleMouseOutVendor}
                         >
                       {vendor.name}
                     </Box>
@@ -119,19 +135,32 @@ const ProductsComponent = () => {
                   </Stack>
             </Paper>
           </Grid>
+          {/* Carousel */}
           <Grid xs={12} sm={9} md={7} item>
-            <Box sx={{ width: '100%', height: '56.25%', borderRadius: 2, position: "relative", cursor:'pointer'}}>
-              <Image 
-                  src={thumbnail} 
-                  layout='responsive'
-                  alt='video title (Official Video)'
-                  style={{borderRadius: 6}}
-                  />
-            </Box>
+              <Box sx={{ width: '100%', height: '56.25%', borderRadius: 2, position: "relative", cursor:'pointer'}}>
+                  <Slider 
+                      className="carousel-styles" 
+                      autoplay
+                      infinite
+                      arrows={false}
+                      speed={1200}
+                      dots
+                      >
+                    {adPostersArray.map((posterItem, i) => (
+                        <Image 
+                            key={i}
+                            src={posterItem} 
+                            layout='responsive'
+                            alt='Banner Ad'
+                            style={{borderRadius: 6}}
+                            />
+                    ))}
+                  </Slider>
+              </Box>
           </Grid>
           <Grid sm={3} sx={{ display: {xs:'none', sm:'block'}}} item>
             <Stack spacing={2} sx={{height:'100%'}}>
-            <Paper sx={{padding: 1, height: '50%'}}>
+            <Paper square sx={{padding: 1, height: '50%'}}>
               <Stack sx={{display: 'flex', flexDirection: 'column', alignItems: 'start', justifyContent: 'space-evenly', height: '100%'}}>
                 <Stack direction='row' spacing={1} sx={{display: 'flex', alignItems:'center'}}>
                   <DollarCircleTwoTone style={{fontSize: 25}} twoToneColor='#1976d2'/>
@@ -168,6 +197,78 @@ const ProductsComponent = () => {
             </Stack>
           </Grid>
         </Grid>
+      </Box>
+      {/* Dukaflani Ads */}
+      <Box>
+        <Leaderboard3Ads/>
+      </Box>
+      {/* Dukaflani Brands Carousel */}
+      <Box>
+        <ProductsCarouselDukaflani
+          title="Dukaflani Brands"
+          color1="#2900be"
+          color2="#b723d5"
+        />
+      </Box>
+      {/* Apparel Carousel */}
+      <Box>
+        <ProductsCarousel
+          title="Apparel"
+          color1="#f48e21"
+          color2="#b723d5"
+          icon={<SkinOutlined style={{fontSize: 25, color: '#ffffff'}}/>}
+        />
+      </Box>
+      {/* Wellness Carousel */}
+      <Box>
+        <ProductsCarousel
+          title="Wellness"
+          color1="#f48e21"
+          color2="#b723d5"
+          icon={<HeartOutlined style={{fontSize: 25, color: '#ffffff'}}/>}
+        />
+      </Box>
+      {/* Electronics Carousel */}
+      <Box>
+        <ProductsCarousel
+          title="Electronics"
+          color1="#f48e21"
+          color2="#b723d5"
+          icon={<TabletOutlined style={{fontSize: 25, color: '#ffffff'}}/>}
+        />
+      </Box>
+      {/* About Dukaflani */}
+      <Box>
+        <Paper square sx={{padding: 2, marginTop: 3}}>
+          <Stack>
+            <Typography variant='h6' component='h1'>Dukaflani - Plugging Business to Music</Typography>
+            <Typography variant='body1'>Dukaflani.com is the world's first online marketplace dedicated to 
+            musicians and to the business of music. Our merchants include:
+            </Typography>
+            <Box>
+              <ul>
+                <li>
+                  <Typography variant='body2'>Musicians</Typography>
+                </li>
+                <li>
+                  <Typography variant='body2'>Event organizers</Typography>
+                </li>
+                <li>
+                  <Typography variant='body2'>Promoters</Typography>
+                </li>
+                <li>
+                  <Typography variant='body2'>Vendors or brands who have partnership agreements with musicians</Typography>
+                </li>
+              </ul>
+            </Box>
+            <Typography variant='body1'>The above list will continue to grow with time as we continue to add more features to the platform.</Typography>
+            <Typography variant='body1'>We help you buy directly from musicians or from brands associated and promoted by musicians.</Typography>
+          </Stack>
+        </Paper>
+      </Box>
+      {/* Copyright */}
+      <Box>
+        <Copyright/>
       </Box>
     </Box>
   )
