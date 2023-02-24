@@ -6,7 +6,7 @@ import Head from 'next/head'
 import Image from "next/legacy/image";
 
 //  Mui Imports
-import { Avatar, Box, Card, Chip, Container, Divider, Grid, Button, Stack, Typography, CardContent, CardActionArea, IconButton, Tooltip, Tabs, Tab } from '@mui/material'
+import { Avatar, Box, Card, colors, Container, Divider, Grid, Button, Stack, Typography, CardContent, CardActionArea, IconButton, Tooltip, Tabs, Tab, Paper, Fab } from '@mui/material'
 import { useTheme } from '@mui/material/styles'
 
 // Icons
@@ -21,6 +21,7 @@ import TabLyricsCard from '@/components/reusableComponents/TabLyricsCard';
 import TabSkizaCards from '@/components/reusableComponents/TabSkizaCards';
 import TabAlbumCard from '@/components/reusableComponents/TabAlbumCard';
 import TabEventsCards from '@/components/reusableComponents/TabEventsCards';
+import MoreVideos from '@/components/reusableComponents/MoreVideos';
 
 // Project Imports
 import adposter1 from '@/public/assets/pictures/event1.jpg'
@@ -50,12 +51,12 @@ const CurrentVideo = ({ setIsDarkMode, isDarkMode, value, setValue }) => {
                     <Grid container sx={{padding: 5}} spacing={3}>
                         <Grid xs={12} md={8} item>
                             <Stack>
-                                <Stack sx={{width: '100%', paddingBottom: '56.25%', backgroundColor: 'lightgray'}}>
+                                <Stack sx={{width: '100%', paddingBottom: '56.25%', backgroundColor: 'black'}}>
                                     <Box>video</Box>
                                 </Stack>
                                 <Stack>
                                     <Box>
-                                        <Typography sx={{color: '#1976d2'}} variant='body2'>DRILL</Typography>
+                                        <Typography sx={{color: '#1976d2'}} variant='button'>DRILL</Typography>
                                         <Typography variant='h6' component='h1'>Wakadinali - Rong Reggae (Official Video) ft Skillo, MC GiJo & RiDiQ</Typography>
                                     </Box>
                                 </Stack>
@@ -75,16 +76,34 @@ const CurrentVideo = ({ setIsDarkMode, isDarkMode, value, setValue }) => {
                                         </Grid>
                                     </Box>
                                     <Stack direction='row' spacing={2}>
-                                        <Chip icon={<LikeOutlined />} label={`Likes 17k`} />
-                                        <Chip icon={<DislikeOutlined />} label={`Dislikes 113`} />
-                                        <Chip icon={<ShareAltOutlined />} label="Share" />
+                                        <Paper elevation={0} sx={{ backgroundColor: colors.grey[200], display: 'flex', alignItems: 'center', justifyContent: 'end', paddingY: 1, paddingX: 1.5, borderRadius: 10, }}>
+                                            <Stack spacing={2} direction='row'>
+                                                <Stack direction='row' spacing={1} sx={{cursor: 'pointer'}}>
+                                                    <LikeOutlined style={{fontSize: 19}} />
+                                                    <Typography sx={{ fontWeight:'bold' }} variant='body2'>17k</Typography>
+                                                </Stack>
+                                                <Divider orientation="vertical" variant="middle" flexItem />
+                                                <DislikeOutlined style={{fontSize: 19, cursor: 'pointer'}} />
+                                            </Stack>
+                                        </Paper>
+                                        <Paper elevation={0} sx={{ backgroundColor: colors.grey[200], display: 'flex', alignItems: 'center', justifyContent: 'end', paddingY: 1, paddingX: 1.5, borderRadius: 10, cursor: 'pointer'}}>
+                                            <Stack spacing={2} direction='row'>
+                                                <Stack direction='row' spacing={1}>
+                                                    <ShareAltOutlined style={{fontSize: 19}} />
+                                                    <Typography sx={{ fontWeight:'bold' }} variant='body2'>Share</Typography>
+                                                </Stack>
+                                            </Stack>
+                                        </Paper>
                                     </Stack>
                                 </Stack>
-                                <Box sx={{paddingTop: 1}}>
+                                <Box sx={{paddingTop: 1, paddingBottom: 2}}>
                                     <Typography className="line-clamp-1 line-clamp" gutterBottom variant='body1'>Description uyuyguyg yuyguyg ygyyg iguyguy uudhvoudh iuyc jbu viuuy yuyuy iuyuyg yuyuys ygsuycuy yuycv uycvs ycsucyvsycsc sicsuysucys sisucvsuc iyuyssuy isycusycsx ugscygsicys isucgcsycsiy iucgsy sucsuys ucsycsuy uiscsys</Typography>
                                 </Box>
                                 <Typography variant='subtitle2'>MORE VIDEOS:</Typography>
                                 <Divider/>
+                                <Box sx={{paddingX: 1, paddingY: 1}}>
+                                    <MoreVideos/>
+                                </Box>
                             </Stack>
                         </Grid >
                         <Grid xs={12} md={4} item >

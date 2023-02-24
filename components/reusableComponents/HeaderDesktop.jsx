@@ -77,8 +77,6 @@ const HeaderDesktop = ({ setIsDarkMode, isDarkMode, value, setValue }) => {
   const pathName = router.pathname
   const pathnameLength = pathName.split("/")
   const [showTabs, setShowTabs] = useState(true)
-  console.log("pathname value:", pathName);
-  console.log("split pathname:", pathnameLength.length)
 
   useEffect(() => {
     if (pathnameLength.length > 3) {
