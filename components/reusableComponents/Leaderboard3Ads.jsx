@@ -59,7 +59,7 @@ const Leaderboard3Ads = () => {
           <Paper square>
             <Stack direction="row" sx={{padding: 1}} >
               <Stack onMouseEnter={handleMouseInPic1} onMouseLeave={handleMouseOutPic1} xs={4} sx={{width: '100%', height: '56.25%'}}>
-                <Paper elevation={pic1Hovered && 10} sx={{ width: '100%', height: '100%', position: "relative", cursor:'pointer'}}>
+                <Paper elevation={pic1Hovered ? 10 : 0} sx={{ width: '100%', height: '100%', position: "relative", cursor:'pointer'}}>
                   <Image 
                       src={ad1} 
                       layout='responsive'
@@ -68,7 +68,7 @@ const Leaderboard3Ads = () => {
                 </Paper>
               </Stack>
               <Stack onMouseEnter={handleMouseInPic2} onMouseLeave={handleMouseOutPic2} xs={4} sx={{width: '100%', height: '56.25%'}}>
-                <Paper elevation={pic2Hovered && 10} sx={{ width: '100%', height: '100%', position: "relative", cursor:'pointer'}}>
+                <Paper elevation={pic2Hovered ? 10 : 0} sx={{ width: '100%', height: '100%', position: "relative", cursor:'pointer'}}>
                   <Image 
                       src={ad2} 
                       layout='responsive'
@@ -77,7 +77,7 @@ const Leaderboard3Ads = () => {
                 </Paper>
               </Stack>
               <Stack onMouseEnter={handleMouseInPic3} onMouseLeave={handleMouseOutPic3} xs={4} sx={{width: '100%', height: '56.25%'}}>
-                <Paper elevation={pic3Hovered && 10} sx={{ width: '100%', height: '100%', position: "relative", cursor:'pointer'}}>
+                <Paper elevation={pic3Hovered ? 10 : 0} sx={{ width: '100%', height: '100%', position: "relative", cursor:'pointer'}}>
                   <Image 
                       src={ad3} 
                       layout='responsive'

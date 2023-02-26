@@ -1,3 +1,6 @@
+// NextJs Imports
+import { useRouter } from 'next/router'
+
 // MUI Imports
 import { Box, Button, Card, CardActionArea, CardContent, Stack, Typography } from '@mui/material'
 import { useTheme } from '@mui/material/styles'
@@ -8,6 +11,7 @@ import { EnvironmentOutlined, FlagOutlined } from '@ant-design/icons'
 
 export const TabEventCard = () => {
   const theme = useTheme()
+  const router = useRouter()
 
 
   return (
@@ -37,7 +41,7 @@ export const TabEventCard = () => {
                   </Stack>
                 </Box>
                 <Box sx={{width: '100%', paddingTop: 1}}>
-                    <Button fullWidth variant='contained' size="small" >Event Details</Button>
+                    <Button onClick={() => router.push({ pathname: '/events/event_id' }) } fullWidth variant='contained' size="small" >Event Details</Button>
                 </Box>
               </Stack>
             </CardContent>

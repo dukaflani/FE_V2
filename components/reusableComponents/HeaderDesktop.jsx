@@ -6,7 +6,7 @@ import { useRouter } from 'next/router';
 
 // Mui Imports
 import { Box, Tabs, Tab, AppBar, Toolbar, IconButton, Stack, Avatar, 
-  InputBase, Tooltip, Link, Drawer } from '@mui/material'
+  InputBase, Tooltip, Link, Drawer, List, ListItem, ListItemButton, ListItemIcon, ListItemText } from '@mui/material'
 import { styled, alpha, useTheme } from '@mui/material/styles';
 
 // NPM Import
@@ -14,7 +14,8 @@ import { useCookies } from "react-cookie"
 
 // Icons
 import { MenuOutlined, MoreOutlined,ShoppingCartOutlined, BellOutlined,
-   SearchOutlined, HomeFilled, ShopFilled, BarcodeOutlined } from '@ant-design/icons'
+   SearchOutlined, HomeFilled, ShopFilled, BarcodeOutlined, HomeOutlined,
+   LayoutOutlined, UserOutlined, SettingOutlined, CloudUploadOutlined, ShopOutlined } from '@ant-design/icons'
 
 
 
@@ -73,10 +74,60 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 
 const HeaderDesktop = ({ setIsDarkMode, isDarkMode, value, setValue }) => {
+  const [selectedIndex, setSelectedIndex] = useState('/_viewport/desktop');
   const router = useRouter()
   const pathName = router.pathname
   const pathnameLength = pathName.split("/")
   const [showTabs, setShowTabs] = useState(true)
+
+
+  const navItems = [
+    {
+      icon: <HomeOutlined style={{fontSize: 25}} />, 
+      label: 'Home',
+      link: '/',
+      path: '/_viewport/desktop'
+    },
+    {
+      icon: <ShopOutlined style={{fontSize: 25}} />, 
+      label: 'Shop',
+      link: '/shop',
+      path: '/_viewport/desktop/shop'
+    },
+    {
+      icon: <BarcodeOutlined style={{fontSize: 25}} />, 
+      label: 'Events',
+      link: '/events',
+      path: '/_viewport/desktop/events'
+    },
+    {
+      icon: <LayoutOutlined style={{fontSize: 25}} />,
+      label: 'Dashboard',
+      link: '/dashboard',
+      path: '/_viewport/desktop/dashboard'
+    },
+    {
+      icon: <UserOutlined style={{fontSize: 25}} />,
+      label: 'Profile',
+      link: '/profile',
+      path: '/_viewport/desktop/profile'
+    },
+    {
+      icon: <CloudUploadOutlined style={{fontSize: 25}} />,
+      label: 'Uploads',
+      link: '/upload',
+      path: '/_viewport/desktop/upload'
+    },
+    {
+      icon: <SettingOutlined style={{fontSize: 25}} />,
+      label: 'Settings',
+      link: '/settings',
+      path: '/_viewport/desktop/settings'
+    },
+  ]
+  
+
+
 
   useEffect(() => {
     if (pathnameLength.length > 3) {
@@ -86,10 +137,12 @@ const HeaderDesktop = ({ setIsDarkMode, isDarkMode, value, setValue }) => {
   
 
 
-  // home -> /_viewport/desktop
-  // other pages -> /_viewport/desktop/watch
   const theme = useTheme()
   const [drawerOpen, setDrawerOpen] = useState(false)
+
+  const handleListItemClick = () => {
+    setDrawerOpen(false);
+  };
   
 
   const handleChange = (event, newValue) => {
@@ -203,7 +256,45 @@ const HeaderDesktop = ({ setIsDarkMode, isDarkMode, value, setValue }) => {
           open={drawerOpen}
           onClose={() => setDrawerOpen(false)}
         >
-          <div style={{minWidth: 250, backgroundColor: theme.myColors.myBackground, minHeight: '100%'}}>drawer</div>
+          <div style={{minWidth: 250, backgroundColor: theme.myColors.myBackground, minHeight: '100%'}}>
+              <Toolbar variant="dense" sx={{width: '100%'}}>
+                <IconButton onClick={() => setDrawerOpen(false)} edge="start" color="inherit" aria-label="menu" sx={{ mr: 1 }}>
+                  <MenuOutlined style={{ fontSize: 16, color: theme.myColors.textDark }} />
+                </IconButton>
+                <Link 
+                  onClick={(e) => {
+                    e.preventDefault()
+                    router.push({ pathname: '/' })
+                  }}
+                  title='Dukaflani Home'>
+                  <Box sx={{display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer'}}>
+                    <img style={{height: 30}} src='/branding/dukaflani-logo-blue-medium.png' alt='logo'/>
+                  </Box>
+                </Link>
+              </Toolbar>
+              <Box sx={{paddingTop: 1}}>
+                <nav>
+                  <List>
+                  {navItems.map((navItem, i) => (
+                    <ListItem disablePadding>
+                      <ListItemButton
+                        selected={pathName === navItem.path}
+                        onClick={() =>{ 
+                          router.push({ pathname: navItem.link });
+                          setDrawerOpen(false);
+                        }}
+                      >
+                        <ListItemIcon>
+                          {navItem.icon}
+                        </ListItemIcon>
+                        <ListItemText primary={navItem.label} />
+                      </ListItemButton>
+                    </ListItem>
+                  ))}
+                  </List>
+                </nav>
+              </Box>
+          </div>
         </Drawer>
     </>
   )

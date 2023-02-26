@@ -62,13 +62,13 @@ const VideoCard = () => {
                 <Stack>
                   <Stack direction="row" spacing={0.5}>
                     <Tooltip title={artistName} placement="top" >
-                      <Typography sx={{letterSpacing: 0}} className="line-clamp-1 line-clamp" variant='caption'>{artistName}</Typography>
+                      <Typography sx={{letterSpacing: 0}} className="line-clamp-1 line-clamp" variant='body2'>{artistName}</Typography>
                     </Tooltip>
                     <Tooltip title='Verified' placement="top" >
                       <CheckCircleFilled style={{ fontSize: 10, color: theme.myColors.textDark }} />
                     </Tooltip>
                   </Stack>
-                  <Typography sx={{lineHeight: 1, letterSpacing: 0}} variant='caption'>3.5k views &bull; 8 hours ago</Typography>
+                  <Typography sx={{lineHeight: 1, letterSpacing: 0}} variant='body2'>3.5k views &bull; 8 hours ago</Typography>
                 </Stack>
               </Stack>
             </Grid>

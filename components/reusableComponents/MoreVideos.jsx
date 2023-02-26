@@ -1,5 +1,4 @@
 // Next Imports
-import { useRouter } from 'next/router';
 import Image from "next/legacy/image";
 
 // MUI Imports

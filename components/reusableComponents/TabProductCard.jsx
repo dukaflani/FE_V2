@@ -1,3 +1,6 @@
+// Nextjs Imports
+import { useRouter } from "next/router"
+
 // MUI Imports
 import { Box, Stack, Typography, Card, CardMedia, CardContent, IconButton, Tooltip, Button } from "@mui/material"
 
@@ -8,6 +11,9 @@ import { WhatsAppOutlined } from '@ant-design/icons'
 
 
 const TabProductCard = () => {
+    const router = useRouter()
+
+
   return (
     <Box>
         <Stack spacing={2}>
@@ -42,7 +48,7 @@ const TabProductCard = () => {
                                     <Typography className="line-clamp-2 line-clamp" variant="body2">Product description goes here jyyiyu uiuhiuh iuiuhiuh iuiuhiuh uiuhiu uhiuhi ygt8ht gyhyu uhuyguygu ugutiuh iyguyguh iyguygiuh</Typography>
                                 </Stack>
                                 <Box sx={{paddingTop: 2, width: '100%'}}>
-                                    <Button fullWidth size="small" variant="contained">Product Details</Button>
+                                    <Button onClick={() => router.push({ pathname: '/shop/product_id' })} fullWidth size="small" variant="contained">Product Details</Button>
                                 </Box>
                             </Stack>
                         </Box>
