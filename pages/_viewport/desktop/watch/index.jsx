@@ -29,8 +29,8 @@ import adposter1 from '@/public/assets/pictures/event1.jpg'
 
 
 const CurrentVideo = ({ setIsDarkMode, isDarkMode, value, setValue }) => {
-    const [tabPosition, setTabPosition] = useState(0)
     const theme = useTheme()
+    const [tabPosition, setTabPosition] = useState(0)
 
     const handleChange = (event, newValue) => {
         setTabPosition(newValue);
@@ -213,16 +213,16 @@ const CurrentVideo = ({ setIsDarkMode, isDarkMode, value, setValue }) => {
                                     </CardContent>
                                     <CardActionArea>
                                         <Box sx={{padding: 1, textAlign: 'center'}}>
-                                        {
-                                                                {
-                                                                    0: <Typography variant='caption'>Terms & Conditions Apply</Typography>,
-                                                                    1: <Typography variant='caption'>Sold by Dukaflani</Typography>,
-                                                                    2: <Typography variant='caption'>&copy; {new Date().getFullYear()} Wakadinali. All rights Reserved</Typography>,
-                                                                    3: <Typography variant='caption'>Terms & Conditions Apply</Typography>,
-                                                                    4: <Typography variant='caption'>&copy; {new Date().getFullYear()} Wakadinali. All rights Reserved</Typography>,
-                                                                    5: <Typography variant='caption'>Terms & Conditions Apply</Typography>,
-                                                                }[tabPosition]
-                                                            }
+                                            {
+                                                {
+                                                    0: <Typography variant='caption'>Terms & Conditions Apply</Typography>,
+                                                    1: <Typography variant='caption'>Sold by Dukaflani</Typography>,
+                                                    2: <Typography variant='caption'>&copy; {new Date().getFullYear()} Wakadinali. All rights Reserved</Typography>,
+                                                    3: <Typography variant='caption'>Terms & Conditions Apply</Typography>,
+                                                    4: <Typography variant='caption'>&copy; {new Date().getFullYear()} Wakadinali. All rights Reserved</Typography>,
+                                                    5: <Typography variant='caption'>Terms & Conditions Apply</Typography>,
+                                                }[tabPosition]
+                                            }
                                         </Box>
                                     </CardActionArea>
                                 </Card>

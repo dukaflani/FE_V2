@@ -261,8 +261,8 @@ const ProductsComponent = () => {
                 </li>
               </ul>
             </Box>
-            <Typography variant='body1'>The above list will continue to grow with time as we continue to add more features to the platform.</Typography>
-            <Typography variant='body1'>We help you buy directly from musicians or from brands associated and promoted by musicians.</Typography>
+            {/* <Typography gutterBottom variant='body1'>The above list will continue to grow with time as we continue to add more features to the platform.</Typography> */}
+            <Typography variant='body1'>We help you buy directly from musicians or from brands associated with or promoted by musicians.</Typography>
           </Stack>
         </Paper>
       </Box>
