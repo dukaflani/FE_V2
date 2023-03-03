@@ -54,7 +54,7 @@ const Leaderboard3Ads = () => {
               </Box>
               <Typography sx={{color: 'white'}} variant='subtitle1'>Limited Slots Available</Typography>
             </Stack>
-            <Button size='small' variant='text' style={{color: 'white'}} endIcon={<RightOutlined style={{color: 'white', fontSize: 15}} />}>Learn More</Button>
+            <Button size='small' variant='text' style={{color: 'white'}} endIcon={<RightOutlined style={{color: 'white', fontSize: 15}} />}>Details</Button>
           </Stack>
           <Paper square>
             <Stack direction="row" sx={{padding: 1}} >

@@ -12,7 +12,7 @@ import { AppstoreOutlined, EnvironmentOutlined, CheckCircleFilled, LikeOutlined,
 
 
 // Components
-import NavigationLayout from '@/layout/desktop/NavigationLayout'
+import MobileNavigationLayout from '@/layout/mobile/MobileNavigationLayout'
 import UpsellEventsCarousel from '@/components/reusableComponents/UpsellEventsCarousel'
 import Copyright from '@/components/reusableComponents/Copyright'
 
@@ -20,12 +20,12 @@ import Copyright from '@/components/reusableComponents/Copyright'
 import poster1 from '@/public/assets/pictures/event1.jpg'
 
 
-const EventPage = ({ setIsDarkMode, isDarkMode }) => {
+const MobileEventPage = ({ setIsDarkMode, isDarkMode }) => {
     const theme = useTheme()
 
 
   return (
-    <NavigationLayout setIsDarkMode={setIsDarkMode} isDarkMode={isDarkMode} >
+    <MobileNavigationLayout setIsDarkMode={setIsDarkMode} isDarkMode={isDarkMode} >
         <Head>
           <title>Event title | Khaligraph Jones</title>
           <meta name="description" content="Watch 'Kwame' by Khaligraph Jones on
@@ -33,10 +33,10 @@ const EventPage = ({ setIsDarkMode, isDarkMode }) => {
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <link rel="icon" href="/favicon.ico" />
         </Head>
-        <Box sx={{backgroundColor: theme.myColors.myBackground, minHeight: '100vh', paddingTop: 5}}>
+        <Box sx={{backgroundColor: theme.myColors.myBackground, minHeight: '100vh', paddingY: 5}}>
             <Container maxWidth='lg'>
                 <Box>
-                    <Grid container sx={{padding: 5}} rowSpacing={3}>
+                    <Grid container sx={{paddingTop: 5}} rowSpacing={3}>
                         <Grid item xs={12}>
                             <Paper square sx={{padding: 2}}>
                                 <Grid container columnSpacing={3}>
@@ -86,9 +86,9 @@ const EventPage = ({ setIsDarkMode, isDarkMode }) => {
                                                             </Paper>
                                                         </Stack>
                                                     </Box>
-                                                    <Box sx={{width: '100%', paddingBottom: 2}}>
-                                                        <Button startIcon={<CreditCardOutlined/>}  fullWidth  variant="contained" size='small'>Buy Tickets</Button>
-                                                    </Box>
+                                                    {/* <Box sx={{width: '100%', paddingBottom: 2}}>
+                                                        <Button  fullWidth  variant="contained" size='small'>Buy Tickets</Button>
+                                                    </Box> */}
                                                 </Stack>
                                             </Grid>
                                             <Grid item xs={12} md={5}>
@@ -171,9 +171,13 @@ const EventPage = ({ setIsDarkMode, isDarkMode }) => {
                 </Box>
             </Container>
         </Box>
-
-    </NavigationLayout>
+        <Container sx={{backgroundColor: theme.myColors.myBackground, position: 'fixed', bottom: 0, left: 0, right: 0, zIndex: 99}} maxWidth='lg'>
+            <Box sx={{width: '100%', paddingBottom: 2}}>
+                <Button startIcon={<CreditCardOutlined />}  fullWidth  variant="contained" size='medium'>Buy Tickets</Button>
+            </Box>
+        </Container>
+    </MobileNavigationLayout>
   )
 }
 
-export default EventPage
+export default MobileEventPage

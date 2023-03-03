@@ -7,43 +7,42 @@ import { Avatar, Box, Button, colors, Container, Divider, Grid, Paper, Stack, Ty
 import { useTheme } from '@mui/material/styles'
 
 // Icons
-import { AppstoreOutlined, EnvironmentOutlined, CheckCircleFilled, LikeOutlined, 
-    ScheduleOutlined, FlagOutlined, CalendarOutlined, ClockCircleOutlined, CreditCardOutlined } from "@ant-design/icons";
+import { AppstoreOutlined, WhatsAppOutlined, CheckCircleFilled, LikeOutlined, FireOutlined } from "@ant-design/icons";
 
 
 // Components
-import NavigationLayout from '@/layout/desktop/NavigationLayout'
-import UpsellEventsCarousel from '@/components/reusableComponents/UpsellEventsCarousel'
+import MobileNavigationLayout from '@/layout/mobile/MobileNavigationLayout'
+import UpsellProductsCarousel from '@/components/reusableComponents/UpsellProductsCarousel'
 import Copyright from '@/components/reusableComponents/Copyright'
 
 // Project Imports
-import poster1 from '@/public/assets/pictures/event1.jpg'
+import product from '@/public/assets/pictures/product.jpg'
 
 
-const EventPage = ({ setIsDarkMode, isDarkMode }) => {
+const ProductPageMobile = ({ setIsDarkMode, isDarkMode }) => {
     const theme = useTheme()
 
 
   return (
-    <NavigationLayout setIsDarkMode={setIsDarkMode} isDarkMode={isDarkMode} >
+    <MobileNavigationLayout setIsDarkMode={setIsDarkMode} isDarkMode={isDarkMode} >
         <Head>
-          <title>Event title | Khaligraph Jones</title>
+          <title>Buy Dukaflani Branded Hoodie - ksh.3,500 | Khaligraph Jones</title>
           <meta name="description" content="Watch 'Kwame' by Khaligraph Jones on
            Dukaflani to get the Lyrics, Streaming Links, Products and Merchandise, Skiza Tunes, The Album, Events and Tour Dates " />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <link rel="icon" href="/favicon.ico" />
         </Head>
-        <Box sx={{backgroundColor: theme.myColors.myBackground, minHeight: '100vh', paddingTop: 5}}>
+        <Box sx={{backgroundColor: theme.myColors.myBackground, minHeight: '100vh', paddingY: 5}}>
             <Container maxWidth='lg'>
                 <Box>
-                    <Grid container sx={{padding: 5}} rowSpacing={3}>
+                    <Grid container sx={{paddingTop: 5}} rowSpacing={3}>
                         <Grid item xs={12}>
                             <Paper square sx={{padding: 2}}>
                                 <Grid container columnSpacing={3}>
                                     <Grid item xs={12} md={4}>
                                     <Box sx={{position: 'relative', borderRadius: 2,}}>
                                         <Image 
-                                            src={poster1} 
+                                            src={product} 
                                             layout='responsive'
                                             alt='product title'
                                             style={{borderRadius: 6}}
@@ -55,40 +54,32 @@ const EventPage = ({ setIsDarkMode, isDarkMode }) => {
                                             <Grid item xs={12} md={7}>
                                                 <Stack spacing={2}>
                                                     <Stack spacing={1}>
-                                                        <Typography variant="h6" component='h1'>Event Title goes here</Typography>
-                                                        <Typography variant="caption">Event By: Safaricom Live</Typography>
+                                                        <Typography variant="h6" component='h1'>Product Title goes here</Typography>
+                                                        <Typography variant="caption">Sold By: Home Apparel 254</Typography>
                                                     </Stack>
                                                     <Divider/>
                                                     <Box sx={{backgroundColor: '#f48e21', borderRadius: 2}}>
                                                         <Stack sx={{padding: 1}}>
                                                             <Stack direction='row' spacing={1}>
                                                                 <AppstoreOutlined style={{color: 'white', fontSize: 20}} />
-                                                                <Typography sx={{color: 'white'}} variant="subtitle2">Concert Event</Typography>
+                                                                <Typography sx={{color: 'white'}} variant="subtitle2">Apparel</Typography>
                                                             </Stack>
                                                         </Stack>
                                                         <Stack sx={{padding: 0.2}}>
                                                             <Paper sx={{padding: 2, borderBottomLeftRadius: 6, borderBottomRightRadius: 6}} elevation={0} square>
                                                                 <Stack>
-                                                                    <Box sx={{paddingBottom: 0.5}}>
-                                                                        <Typography sx={{backgroundColor: colors.blue[50], padding: 0.5, color: colors.blue[500]}} variant="caption">Ticket Prices From</Typography>
-                                                                    </Box>
-                                                                    <Typography variant="h4">ksh.1,500</Typography>
+                                                                    <Typography variant="h4">ksh.3,500</Typography>
                                                                     <Box>
-                                                                        <Typography sx={{backgroundColor: colors.green[50], padding: 0.5, color: colors.green[500]}} variant="caption">ticketsasa.com</Typography>
+                                                                        <Typography sx={{backgroundColor: colors.blue[50], padding: 0.5, color: colors.blue[500]}} variant="caption">Available</Typography>
                                                                     </Box>
-                                                                    {/* <Box sx={{paddingTop: 1}}>
-                                                                        <Stack direction='row' spacing={0.5}>
-                                                                            <ClockCircleOutlined />
-                                                                            <Typography variant="caption">18:00hrs!</Typography>
-                                                                        </Stack>
-                                                                    </Box> */}
+                                                                    <Typography variant="caption">Hurry while stocks last!</Typography>
                                                                 </Stack>
                                                             </Paper>
                                                         </Stack>
                                                     </Box>
-                                                    <Box sx={{width: '100%', paddingBottom: 2}}>
-                                                        <Button startIcon={<CreditCardOutlined/>}  fullWidth  variant="contained" size='small'>Buy Tickets</Button>
-                                                    </Box>
+                                                    {/* <Box sx={{width: '100%', paddingBottom: 2}}>
+                                                        <Button startIcon={<WhatsAppOutlined />} sx={{backgroundColor: '#25D366'}} fullWidth  variant="contained" size='small'>Order on WhatsApp</Button>
+                                                    </Box> */}
                                                 </Stack>
                                             </Grid>
                                             <Grid item xs={12} md={5}>
@@ -120,46 +111,26 @@ const EventPage = ({ setIsDarkMode, isDarkMode }) => {
                             <Paper square>
                                 <Stack>
                                     <Box sx={{padding: 1.5}}>
-                                        <Typography variant="h6">Event Details</Typography>
+                                        <Typography variant="h6">Product Details</Typography>
                                     </Box>
                                     <Divider/>
                                     <Box sx={{padding: 1.5}}>
-                                        <Stack spacing={1}>
-                                            <Stack spacing={1}>
-                                                <Stack direction='row' spacing={1}>
-                                                    <EnvironmentOutlined />
-                                                    <Typography variant='body2'>The English Piont Marina</Typography>
-                                                </Stack>
-                                                <Stack direction='row' spacing={1}>
-                                                    <FlagOutlined />
-                                                    <Typography variant='body2'>Diani, Kenya</Typography>
-                                                </Stack>
-                                                <Stack direction='row' spacing={1}>
-                                                    <CalendarOutlined />
-                                                    <Typography variant='body2'>Fri 03 March 2023</Typography>
-                                                </Stack>
-                                                <Stack direction='row' spacing={1}>
-                                                    <ClockCircleOutlined />
-                                                    <Typography variant='body2'>18:00hrs</Typography>
-                                                </Stack>
-                                            </Stack>
-                                            <Stack>
-                                                <Typography variant="subtitle2">Description</Typography>
-                                                <Typography variant="body1">Event details goes here</Typography>
-                                            </Stack>
+                                        <Stack>
+                                            <Typography variant="subtitle2">Description</Typography>
+                                            <Typography variant="body1">Product details goes here</Typography>
                                         </Stack>
                                     </Box>
                                 </Stack>
                             </Paper>
                         </Grid>
                         <Grid item xs={12}>
-                           {/* Upsell Events */}
+                            {/* Upsell Products Carousel */}
                             <Box>
-                                <UpsellEventsCarousel
-                                title="Wakadinali Tour Dates"
+                                <UpsellProductsCarousel
+                                promoter="Wakadinali"
                                 color1="#f48e21"
-                                color2="#2900be"
-                                icon={<ScheduleOutlined style={{fontSize: 25, color: '#ffffff'}} />}
+                                color2="#b723d5"
+                                icon={<FireOutlined style={{fontSize: 25, color: '#ffffff'}}/>}
                                 />
                             </Box>
                         </Grid>
@@ -171,9 +142,13 @@ const EventPage = ({ setIsDarkMode, isDarkMode }) => {
                 </Box>
             </Container>
         </Box>
-
-    </NavigationLayout>
+        <Container sx={{backgroundColor: theme.myColors.myBackground, position: 'fixed', bottom: 0, left: 0, right: 0, zIndex: 99}} maxWidth='lg'>
+            <Box sx={{width: '100%', paddingBottom: 2}}>
+                <Button startIcon={<WhatsAppOutlined />} sx={{backgroundColor: '#25D366'}} fullWidth  variant="contained" size='medium'>Order on WhatsApp</Button>
+            </Box>
+        </Container>
+    </MobileNavigationLayout>
   )
 }
 
-export default EventPage
+export default ProductPageMobile

@@ -242,7 +242,7 @@ const ProductsComponent = () => {
         <Paper square sx={{padding: 2, marginTop: 3}}>
           <Stack>
             <Typography variant='h6' component='h1'>Dukaflani - Plugging Business to Music</Typography>
-            <Typography variant='body1'>Dukaflani.com is the world's first online marketplace dedicated to 
+            <Typography variant='body1'>Dukaflani.com is an online marketplace dedicated to 
             musicians and to the business of music. Our merchants include:
             </Typography>
             <Box>

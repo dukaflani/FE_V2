@@ -159,9 +159,9 @@ const CurrentVideo = ({ setIsDarkMode, isDarkMode }) => {
              anchor='bottom'
         >
             <Box sx={{ backgroundColor: theme.myColors.myBackground}}>
-                <Container sx={{paddingTop: 3, height: '60vh'}} maxWidth='sm'>
-                    <Stack>
-                        <Box>
+                <Container sx={{height: '60vh'}} maxWidth='sm'>
+                    <Stack spacing={2}>
+                        <Box sx={{paddingTop: 3, position: 'sticky', top: 0, backgroundColor: theme.myColors.myBackground, zIndex: 99}}>
                             <Box sx={{display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}>
                                 <Typography variant='subtitle1'>INFO:</Typography>
                                 <Box onClick={() => setShowSongDetails(false)}>
@@ -170,7 +170,31 @@ const CurrentVideo = ({ setIsDarkMode, isDarkMode }) => {
                             </Box>
                             <Divider/>
                         </Box>
+                        <Box>
+                            <Box sx={{display: 'flex', alignItems: 'center', justifyContent: 'space-evenly'}}>
+                                <Box sx={{textAlign: 'center'}}>
+                                    <Typography variant='subtitle2'>282,345,674</Typography>
+                                    <Typography variant='caption'>views</Typography>
+                                </Box>
+                                <Box sx={{textAlign: 'center'}}>
+                                    <Typography variant='subtitle2'>3.5k</Typography>
+                                    <Typography variant='caption'>likes</Typography>
+                                </Box>
+                                <Box sx={{textAlign: 'center'}}>
+                                    <Typography variant='subtitle2'>Fri, 23 Jun 2023</Typography>
+                                    <Typography variant='caption'>added</Typography>
+                                </Box>
+                            </Box>
+                        </Box>
+                        <Divider/>
+                        <Box>
+                            <Typography variant='body2'>Song description goes here</Typography>
+                        </Box>
                     </Stack>
+                    {/* Copyright */}
+                    <Box>
+                        <Copyright/>
+                    </Box>
                 </Container>
             </Box>
         </Drawer>

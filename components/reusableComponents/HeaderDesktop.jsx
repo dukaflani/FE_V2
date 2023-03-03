@@ -74,12 +74,14 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 
 const HeaderDesktop = ({ setIsDarkMode, isDarkMode, value, setValue }) => {
-  const [selectedIndex, setSelectedIndex] = useState('/_viewport/desktop');
+  const theme = useTheme()
   const router = useRouter()
   const pathName = router.pathname
   const pathnameLength = pathName.split("/")
   const [showTabs, setShowTabs] = useState(true)
-
+  
+  const [selectedIndex, setSelectedIndex] = useState('/_viewport/desktop');
+  const [drawerOpen, setDrawerOpen] = useState(false)
 
   const navItems = [
     {
@@ -100,30 +102,30 @@ const HeaderDesktop = ({ setIsDarkMode, isDarkMode, value, setValue }) => {
       link: '/events',
       path: '/_viewport/desktop/events'
     },
-    {
-      icon: <LayoutOutlined style={{fontSize: 25}} />,
-      label: 'Dashboard',
-      link: '/dashboard',
-      path: '/_viewport/desktop/dashboard'
-    },
-    {
-      icon: <UserOutlined style={{fontSize: 25}} />,
-      label: 'Profile',
-      link: '/profile',
-      path: '/_viewport/desktop/profile'
-    },
-    {
-      icon: <CloudUploadOutlined style={{fontSize: 25}} />,
-      label: 'Uploads',
-      link: '/upload',
-      path: '/_viewport/desktop/upload'
-    },
-    {
-      icon: <SettingOutlined style={{fontSize: 25}} />,
-      label: 'Settings',
-      link: '/settings',
-      path: '/_viewport/desktop/settings'
-    },
+    // {
+    //   icon: <LayoutOutlined style={{fontSize: 25}} />,
+    //   label: 'Dashboard',
+    //   link: '/dashboard',
+    //   path: '/_viewport/desktop/dashboard'
+    // },
+    // {
+    //   icon: <UserOutlined style={{fontSize: 25}} />,
+    //   label: 'Profile',
+    //   link: '/profile',
+    //   path: '/_viewport/desktop/profile'
+    // },
+    // {
+    //   icon: <CloudUploadOutlined style={{fontSize: 25}} />,
+    //   label: 'Uploads',
+    //   link: '/upload',
+    //   path: '/_viewport/desktop/upload'
+    // },
+    // {
+    //   icon: <SettingOutlined style={{fontSize: 25}} />,
+    //   label: 'Settings',
+    //   link: '/settings',
+    //   path: '/_viewport/desktop/settings'
+    // },
   ]
   
 
@@ -137,8 +139,6 @@ const HeaderDesktop = ({ setIsDarkMode, isDarkMode, value, setValue }) => {
   
 
 
-  const theme = useTheme()
-  const [drawerOpen, setDrawerOpen] = useState(false)
 
   const handleListItemClick = () => {
     setDrawerOpen(false);
